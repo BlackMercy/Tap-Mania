@@ -1,0 +1,9 @@
+- Store both player names to variables + set timer
+- Press start game -> goes to activity 2 (countdown page)
+- Countdown 3 seconds -> goes to activity 3 (game page)
+- Start tapping on both sides 
+- Timer runs according to what player has set at the first page
+- Timer runs to 0, disable all buttons.
+- Display the winner + store player name and value from counter (score) in SQLite database
+- Click to view high score table on the top right corner
+- Display winner name and score from SQLite along with reset button.
