@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -17,12 +16,13 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void startGame(View v) {
+    public void onClick(View v) {
 
-        //Intent i = new Intent(this, Game.class);
-        startActivity(new Intent(MainActivity.this, CountDown.class));
-        EditText player1 = (EditText)findViewById(R.id.p1name);
-        EditText player2 = (EditText)findViewById(R.id.p2name);
+        Intent i = new Intent(this, CountDown.class);
+//        EditText player1 = (EditText)findViewById(R.id.p1name);
+//        EditText player2 = (EditText)findViewById(R.id.p2name);
+        // also send player1 and player2 to next activity
+        startActivity(i);
     }
 
     @Override
