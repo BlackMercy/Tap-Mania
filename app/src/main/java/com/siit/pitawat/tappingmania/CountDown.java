@@ -1,8 +1,10 @@
 package com.siit.pitawat.tappingmania;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -12,14 +14,20 @@ import android.widget.TextView;
  */
 public class CountDown extends ActionBarActivity {
 
-    TextView num = (TextView)findViewById(R.id.countdown);
+    TextView num;
+    String player1, player2;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.countdown);
+        num = (TextView)findViewById(R.id.countdown);
+        Intent i = this.getIntent();
+        player1 = i.getStringExtra("player1");
+        player2 = i.getStringExtra("player2");
 //        num = new TextView(this);
 //        this.setContentView(num);
-        int n = Integer.parseInt(num.toString());
+        int n = Integer.parseInt(num.getText().toString());
+        Log.d("n", n+"");
         timer counter = new timer (n*1000,1000);
         counter.start();
     }
@@ -33,13 +41,15 @@ public class CountDown extends ActionBarActivity {
         @Override
         public void onFinish(){
             num.setText("START!");
-//            Intent j = new Intent (this,Game.class);
-//            startActivity(j);
+            Intent j = new Intent(CountDown.this, Game.class);
+            j.putExtra("player1", player1);
+            startActivity(j);
             // advance to Game class
         }
 
         @Override
         public void onTick(long millisUntilFinished){
+            Log.d("tick", "" + millisUntilFinished);
             num.setText(""+millisUntilFinished/1000);
         }
     }
