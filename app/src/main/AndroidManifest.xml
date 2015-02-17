@@ -9,7 +9,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,12 +19,14 @@
         </activity>
         <activity
             android:name=".CountDown"
-            android:label="Countdown">
+            android:label="Countdown"
+            android:screenOrientation="portrait" >
             </activity>
 
         <activity
             android:name=".Game"
-            android:label="Game">
+            android:label="Game"
+            android:screenOrientation="portrait" >
             </activity>
     </application>
 

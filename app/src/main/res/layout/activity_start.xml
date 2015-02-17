@@ -15,20 +15,11 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Tap as fast as possible!"
-            android:id="@+id/textView"
+            android:id="@+id/textViewP1"
             android:textSize="25dp"
             android:textStyle="normal"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tap Here"
-            android:id="@+id/buttonP1"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,9 +31,21 @@
             android:textSize="50dp"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="52dp" />
+            android:layout_marginTop="52dp"
+            android:layout_gravity="center_horizontal" />
 
-        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap Here"
+            android:id="@+id/buttonP1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_horizontal"
+            android:onClick="tap" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,32 +58,35 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Tap as fast as possible!"
-            android:id="@+id/textView"
+            android:id="@+id/textViewP2"
             android:textSize="25dp"
             android:textStyle="normal"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tap Here"
-            android:id="@+id/buttonP1"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/scoreP1"
+            android:id="@+id/scoreP2"
             android:text="0"
             android:textStyle="bold"
             android:textSize="50dp"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="52dp" />
+            android:layout_marginTop="52dp"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap Here"
+            android:id="@+id/buttonP2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center_horizontal"
+            android:onClick="tap" />
 
     </LinearLayout>
 
