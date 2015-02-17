@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,8 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
-    android:id="@+id/main">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -26,8 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewInstructions"
-        android:padding="40dp"
-        >
+        android:padding="40dp">
 
         <TableRow
             android:layout_width="match_parent"
@@ -39,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="20dp"
                 android:text="Player 1 Name"
-                android:textColor="#000"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000" />
 
             <EditText
                 android:id="@+id/p1name"
@@ -49,8 +48,7 @@
                 android:editable="true"
                 android:maxLength="10"
                 android:text="Player 1"
-                android:textColor="#939393"
-                />
+                android:textColor="#939393" />
 
 
         </TableRow>
@@ -64,8 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Player 2 Name"
-                android:textColor="#000"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#000" />
 
             <EditText
                 android:id="@+id/p2name"
@@ -73,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:editable="true"
                 android:maxLength="10"
-                android:textColor="#939393"
-                android:text="Player 2" />
+                android:text="Player 2"
+                android:textColor="#939393" />
         </TableRow>
 
 
@@ -99,9 +97,9 @@
         android:layout_below="@+id/textView3"
         android:layout_marginTop="51dp"
         android:gravity="center"
+        android:paddingBottom="30dp"
         android:text="Compete with your friend and see who can tap more rapidly in 1 minute!"
         android:textIsSelectable="false"
-        android:paddingBottom="30dp"
         android:textSize="20dp" />
 
 
