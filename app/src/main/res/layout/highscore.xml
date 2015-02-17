@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow android:gravity="center_horizontal">
+
+            <TextView
+                android:text="---BEST PLAYERS---"
+                android:textSize="40dp"
+                android:textStyle="bold|italic"
+                android:textColor="#F00"/>
+        </TableRow>
+    </TableLayout>
+
+
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+
+            <TableRow android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="NAME"
+                    android:textColor="#00F"
+                    android:textSize="30dp"/>
+
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="SCORE"
+                    android:textColor="#00F"
+                    android:textSize="30dp" />
+
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal">
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="Peter"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="96"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal">
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="Oliver"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="88"
+                    android:textSize="20dp" />
+            </TableRow>
+
+            <TableRow android:gravity="center_horizontal">
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="Julian"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:gravity="center"
+                    android:padding="10dip"
+                    android:text="80"
+                    android:textSize="20dp" />
+            </TableRow>
+
+        </TableLayout>
+
+    <Button
+        android:id="@+id/buttonReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>

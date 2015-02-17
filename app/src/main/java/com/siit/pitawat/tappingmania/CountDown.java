@@ -24,8 +24,6 @@ public class CountDown extends ActionBarActivity {
         Intent i = this.getIntent();
         player1 = i.getStringExtra("player1");
         player2 = i.getStringExtra("player2");
-//        num = new TextView(this);
-//        this.setContentView(num);
         int n = Integer.parseInt(num.getText().toString());
         Log.d("n", n+"");
         timer counter = new timer (n*1000,1000);
