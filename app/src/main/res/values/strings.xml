@@ -4,5 +4,6 @@
     <string name="app_name">Tap Mania</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="high_score">High Score</string>
 
 </resources>

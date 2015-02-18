@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:background="#DB944D">
+        android:background="#FFC107">
 
         <TextView
             android:id="@+id/textViewP1"
@@ -42,7 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="58"
-                    android:textSize="40dp" />
+                    android:textSize="40dp"
+                    android:id="@+id/time_p1" />
             </TableRow>
         </TableLayout>
 
@@ -78,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:background="#70C6FF"
+        android:background="#009688"
         android:rotation="180">
 
         <TextView
@@ -111,7 +112,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="58"
-                    android:textSize="40dp" />
+                    android:textSize="40dp"
+                    android:id="@+id/time_p2" />
             </TableRow>
         </TableLayout>
 
@@ -141,6 +143,6 @@
 
     </LinearLayout>
 
-    
+
 
 </RelativeLayout>

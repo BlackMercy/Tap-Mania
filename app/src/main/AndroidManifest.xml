@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.siit.pitawat.tappingmania" >
+    package="com.siit.pitawat.tappingmania">
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,14 +20,17 @@
         <activity
             android:name=".CountDown"
             android:label="Countdown"
-            android:screenOrientation="portrait" >
-            </activity>
+            android:screenOrientation="portrait"></activity>
 
         <activity
             android:name=".Game"
             android:label="Game"
-            android:screenOrientation="portrait" >
-            </activity>
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".HighScore"
+            android:label="@string/high_score"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
