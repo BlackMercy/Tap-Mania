@@ -7,9 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
+import android.widget.NumberPicker;
+// This is Main Menu
 
 public class MainActivity extends ActionBarActivity {
+
+    ApplicationConfig appConfig;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +25,16 @@ public class MainActivity extends ActionBarActivity {
         Intent i = new Intent(this, CountDown.class);
         EditText player1 = (EditText)findViewById(R.id.p1name);
         EditText player2 = (EditText)findViewById(R.id.p2name);
+        NumberPicker time = (NumberPicker)findViewById(R.id.numberPicker);
         // also send player1 and player2 to next activity
-        i.putExtra("player1", player1.getText().toString());
-        i.putExtra("player2", player2.getText().toString());
+        appConfig.getInstance().setPlayer1Name(player1.getText().toString());
+        appConfig.getInstance().setPlayer2Name(player2.getText().toString());
+        appConfig.getInstance().setTime(time.getValue());
+        //int time1 = time.getValue();
+//        i.putExtra("player1", player1.getText().toString());
+//
+//
+//        i.putExtra("player2", player2.getText().toString());
         startActivity(i);
     }
 

@@ -14,19 +14,42 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="39dp"
         android:text="TAP MANIA"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="60dp"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewInstructions"
-        android:padding="40dp">
+        android:layout_above="@+id/buttonStart"
+        android:padding="20dp">
+
+        <TableRow android:gravity="center_horizontal">
+
+            <TableRow>
+                <TextView
+                    android:text="Set time limit"
+                    android:textColor="#000000"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:paddingTop="78dp"
+
+                    />
+            </TableRow>
+
+            <com.siit.pitawat.tappingmania.myNumberPicker
+                android:id="@+id/numberPicker"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                max = "60"
+                min = "1"
+                android:padding="10dp">
+
+            </com.siit.pitawat.tappingmania.myNumberPicker>
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
@@ -80,7 +103,7 @@
 
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -95,7 +118,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView3"
-        android:layout_marginTop="51dp"
+
         android:gravity="center"
         android:paddingBottom="30dp"
         android:text="Compete with your friend and see who can tap more rapidly in 1 minute!"
