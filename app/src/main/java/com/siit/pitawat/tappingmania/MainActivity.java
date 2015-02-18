@@ -6,7 +6,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 // This is Main Menu
@@ -24,9 +23,9 @@ public class MainActivity extends ActionBarActivity {
     public void onClick(View v) {
 
         Intent i = new Intent(this, CountDown.class);
-        EditText player1 = (EditText)findViewById(R.id.p1name);
-        EditText player2 = (EditText)findViewById(R.id.p2name);
-        NumberPicker time = (NumberPicker)findViewById(R.id.numberPicker);
+        EditText player1 = (EditText) findViewById(R.id.p1name);
+        EditText player2 = (EditText) findViewById(R.id.p2name);
+        NumberPicker time = (NumberPicker) findViewById(R.id.numberPicker);
         // also send player1 and player2 to next activity
         appConfig.getInstance().setPlayer1Name(player1.getText().toString());
         appConfig.getInstance().setPlayer2Name(player2.getText().toString());
@@ -58,6 +57,7 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.high_score) {
             // Add class here
             Intent hs = new Intent(this, HighScore.class);
+            startActivity(hs);
             //return true;
         }
 

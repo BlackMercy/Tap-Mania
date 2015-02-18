@@ -6,12 +6,12 @@
     tools:context="com.siit.pitawat.tappingmania.CountDown">
 
     <TextView
+        android:id="@+id/countdown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="4"
-        android:id="@+id/countdown"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="4"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="70dp" />
 </RelativeLayout>

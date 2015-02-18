@@ -14,12 +14,12 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:text="TAP MANIA"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="60dp"
-        android:textStyle="bold|italic"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textStyle="bold|italic" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -30,25 +30,21 @@
         <TableRow android:gravity="center_horizontal">
 
             <TableRow>
-                <TextView
-                    android:text="Set time limit"
-                    android:textColor="#000000"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:paddingTop="78dp"
 
-                    />
+                <TextView
+                    android:paddingTop="78dp"
+                    android:text="Set time limit"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#000000" />
             </TableRow>
 
             <com.siit.pitawat.tappingmania.myNumberPicker
                 android:id="@+id/numberPicker"
+                max="60"
+                min="1"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_horizontal"
-
-                max = "60"
-                min = "1"
-                android:padding="10dp">
-
-            </com.siit.pitawat.tappingmania.myNumberPicker>
+                android:padding="10dp"></com.siit.pitawat.tappingmania.myNumberPicker>
         </TableRow>
 
         <TableRow
@@ -69,8 +65,8 @@
                 android:layout_width="17mm"
                 android:layout_height="wrap_content"
                 android:editable="true"
-                android:maxLength="10"
                 android:hint="Player 1"
+                android:maxLength="10"
                 android:textColor="#939393" />
 
 
@@ -93,8 +89,8 @@
                 android:layout_width="17mm"
                 android:layout_height="wrap_content"
                 android:editable="true"
-                android:maxLength="10"
                 android:hint="Player 2"
+                android:maxLength="10"
                 android:textColor="#939393" />
         </TableRow>
 

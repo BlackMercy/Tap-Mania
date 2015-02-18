@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:background="#FFC107">
+        android:background="#FFC107"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textViewP1"
@@ -39,11 +39,11 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/time_p1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="58"
-                    android:textSize="40dp"
-                    android:id="@+id/time_p1" />
+                    android:textSize="40dp" />
             </TableRow>
         </TableLayout>
 
@@ -78,8 +78,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:orientation="vertical"
         android:background="#009688"
+        android:orientation="vertical"
         android:rotation="180">
 
         <TextView
@@ -109,11 +109,11 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/time_p2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="58"
-                    android:textSize="40dp"
-                    android:id="@+id/time_p2" />
+                    android:textSize="40dp" />
             </TableRow>
         </TableLayout>
 
@@ -142,7 +142,6 @@
             android:text="Tap Here" />
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

@@ -5,19 +5,18 @@ package com.siit.pitawat.tappingmania;
  */
 public class ApplicationConfig {
 
+    private static ApplicationConfig appConfig;
     private String player1Name;
     private String player2Name;
     private int time;
 
-    private static ApplicationConfig appConfig;
 
-
-    private ApplicationConfig(){
+    private ApplicationConfig() {
 
     }
 
-    public static ApplicationConfig getInstance(){
-        if (appConfig == null){
+    public static ApplicationConfig getInstance() {
+        if (appConfig == null) {
             appConfig = new ApplicationConfig();
         }
         return appConfig;

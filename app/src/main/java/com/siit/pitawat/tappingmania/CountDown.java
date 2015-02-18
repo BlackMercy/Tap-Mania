@@ -15,7 +15,7 @@ import android.widget.TextView;
 public class CountDown extends ActionBarActivity {
 
     TextView num;
-    String player1, player2;
+    //String player1, player2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,30 +28,6 @@ public class CountDown extends ActionBarActivity {
         Log.d("n", n + "");
         timer counter = new timer(n * 1000, 1000);
         counter.start();
-    }
-
-
-    public class timer extends CountDownTimer {
-
-        public timer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onFinish() {
-            num.setText("START!");
-            Intent j = new Intent(CountDown.this, Game.class);
-//            j.putExtra("player1", player1);
-//            j.putExtra("player2", player2);
-            startActivityForResult(j, 88);
-            // advance to Game class
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            Log.d("tick", "" + millisUntilFinished);
-            num.setText("" + millisUntilFinished / 1000);
-        }
     }
 
     @Override
@@ -80,6 +56,29 @@ public class CountDown extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public class timer extends CountDownTimer {
+
+        public timer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onFinish() {
+            num.setText("START!");
+            Intent j = new Intent(CountDown.this, Game.class);
+//            j.putExtra("player1", player1);
+//            j.putExtra("player2", player2);
+            startActivityForResult(j, 88);
+            // advance to Game class
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            Log.d("tick", "" + millisUntilFinished);
+            num.setText("" + millisUntilFinished / 1000);
+        }
     }
 
 
