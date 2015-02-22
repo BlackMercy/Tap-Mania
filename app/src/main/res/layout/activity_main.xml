@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:text="TAP MANIA"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="60dp"
+        android:textSize="60sp"
         android:textStyle="bold|italic" />
 
     <TableLayout
@@ -38,13 +38,11 @@
                     android:textColor="#000000" />
             </TableRow>
 
-            <com.siit.pitawat.tappingmania.myNumberPicker
+            <NumberPicker
                 android:id="@+id/numberPicker"
-                max="60"
-                min="1"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:padding="10dp"></com.siit.pitawat.tappingmania.myNumberPicker>
+                android:padding="10dp"/>
         </TableRow>
 
         <TableRow
@@ -64,7 +62,7 @@
                 android:id="@+id/p1name"
                 android:layout_width="17mm"
                 android:layout_height="wrap_content"
-                android:editable="true"
+
                 android:hint="Player 1"
                 android:maxLength="10"
                 android:textColor="#939393" />
@@ -88,7 +86,7 @@
                 android:id="@+id/p2name"
                 android:layout_width="17mm"
                 android:layout_height="wrap_content"
-                android:editable="true"
+
                 android:hint="Player 2"
                 android:maxLength="10"
                 android:textColor="#939393" />

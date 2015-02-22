@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
@@ -14,6 +12,7 @@ import android.widget.TextView;
  */
 public class CountDown extends ActionBarActivity {
 
+    ApplicationConfig appConfig;
     TextView num;
     //String player1, player2;
 
@@ -26,6 +25,7 @@ public class CountDown extends ActionBarActivity {
 //        player2 = i.getStringExtra("player2");
         int n = Integer.parseInt(num.getText().toString());
         Log.d("n", n + "");
+        Log.d("TimeCountdown", String.valueOf(appConfig.getInstance().getTime()));
         timer counter = new timer(n * 1000, 1000);
         counter.start();
     }
@@ -36,27 +36,7 @@ public class CountDown extends ActionBarActivity {
         finish();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     public class timer extends CountDownTimer {
 

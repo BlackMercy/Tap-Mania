@@ -13,11 +13,30 @@ import android.widget.NumberPicker;
 public class MainActivity extends ActionBarActivity {
 
     ApplicationConfig appConfig;
+    NumberPicker time;
+    String[] timeLim;
+    int j,k;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        time = (NumberPicker) findViewById(R.id.numberPicker);
+        k = 0;
+        timeLim = new String[4];
+        for (j=0;j<timeLim.length;j++){
+            timeLim[j] = Integer.toString(k+15);
+            k = Integer.parseInt(timeLim[j]);
+        }
+//        timeLim[0] = "15";
+//        timeLim[1] = "30";
+//        timeLim[2] = "45";
+//        timeLim[3] = "60";
+
+        time.setMaxValue(timeLim.length-1);
+        time.setMinValue(0);
+        time.setDisplayedValues(timeLim);
     }
 
     public void onClick(View v) {
@@ -25,8 +44,9 @@ public class MainActivity extends ActionBarActivity {
         Intent i = new Intent(this, CountDown.class);
         EditText player1 = (EditText) findViewById(R.id.p1name);
         EditText player2 = (EditText) findViewById(R.id.p2name);
-        NumberPicker time = (NumberPicker) findViewById(R.id.numberPicker);
+
         // also send player1 and player2 to next activity
+
         appConfig.getInstance().setPlayer1Name(player1.getText().toString());
         appConfig.getInstance().setPlayer2Name(player2.getText().toString());
         appConfig.getInstance().setTime(time.getValue());

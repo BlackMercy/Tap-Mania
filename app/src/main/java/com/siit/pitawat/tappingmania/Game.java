@@ -13,7 +13,7 @@ import android.widget.TextView;
  */
 public class Game extends ActionBarActivity {
     ApplicationConfig appConfig;
-    TextView time_p1, time_p2;
+    TextView time_p1, time_p2, result_p1, result_p2;
     int sP1;
     int sP2;
 
@@ -30,8 +30,11 @@ public class Game extends ActionBarActivity {
 
         time_p1 = (TextView) findViewById(R.id.time_p1);
         time_p2 = (TextView) findViewById(R.id.time_p2);
+        result_p1 = (TextView) findViewById(R.id.textViewP1);
+        result_p2 = (TextView) findViewById(R.id.textViewP2);
 
-        timer counter = new timer(mins * 60 * 1000, 1000);
+
+        timer counter = new timer(mins * 1000, 1000);
         counter.start();
 
 
@@ -49,8 +52,8 @@ public class Game extends ActionBarActivity {
 //        }
         TextView scoreP1 = (TextView) findViewById(R.id.scoreP1);
         TextView scoreP2 = (TextView) findViewById(R.id.scoreP2);
-        int sP1 = Integer.parseInt(scoreP1.getText().toString());
-        int sP2 = Integer.parseInt(scoreP2.getText().toString());
+        sP1 = Integer.parseInt(scoreP1.getText().toString());
+        sP2 = Integer.parseInt(scoreP2.getText().toString());
 
         int id = v.getId();
         switch (id) {
@@ -84,9 +87,14 @@ public class Game extends ActionBarActivity {
             p2.setEnabled(false);
 
             if (sP1 > sP2) {
-
+                result_p1.setText("YOU WIN!!");
+                result_p2.setText("YOU LOSE!!");
+            } else if (sP2 > sP1) {
+                result_p1.setText("YOU LOSE!!");
+                result_p2.setText("YOU WIN!!");
             } else {
-
+                result_p1.setText("DRAW!!");
+                result_p2.setText("DRAW!!");
             }
 
             //Intent j = new Intent(CountDown.this, Game.class);
@@ -104,4 +112,6 @@ public class Game extends ActionBarActivity {
             time_p2.setText("" + millisUntilFinished / 1000);
         }
     }
+
+
 }
