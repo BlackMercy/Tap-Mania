@@ -45,4 +45,6 @@ public class ApplicationConfig {
     public void setTime(int time) {
         this.time = time;
     }
+
+
 }

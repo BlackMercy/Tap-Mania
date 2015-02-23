@@ -70,7 +70,7 @@
             android:layout_alignParentStart="true"
             android:layout_gravity="center_horizontal"
             android:onClick="tap"
-            android:text="Tap Here" />
+            android:text="Player 1 Tap Here" />
 
     </LinearLayout>
 
@@ -139,7 +139,7 @@
             android:layout_alignParentStart="true"
             android:layout_gravity="center_horizontal"
             android:onClick="tap"
-            android:text="Tap Here" />
+            android:text="Player 2 Tap Here" />
 
     </LinearLayout>
 

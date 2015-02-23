@@ -3,6 +3,7 @@ package com.siit.pitawat.tappingmania;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,7 +50,9 @@ public class MainActivity extends ActionBarActivity {
 
         appConfig.getInstance().setPlayer1Name(player1.getText().toString());
         appConfig.getInstance().setPlayer2Name(player2.getText().toString());
-        appConfig.getInstance().setTime(time.getValue());
+        appConfig.getInstance().setTime(Integer.parseInt(timeLim[time.getValue()]));
+
+        Log.d("Test",time.getValue()+"");
         //int time1 = time.getValue();
 //        i.putExtra("player1", player1.getText().toString());
 //
