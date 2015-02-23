@@ -18,6 +18,7 @@ public class Game extends ActionBarActivity {
     TextView time_p1, time_p2, result_p1, result_p2;
     int sP1;
     int sP2;
+    int mins;
     HStoDB HSDB;
 
     @Override
@@ -32,7 +33,7 @@ public class Game extends ActionBarActivity {
         Log.d("Player2Name", appConfig.getInstance().getPlayer2Name());
         Log.d("Time", String.valueOf(appConfig.getInstance().getTime()));
 
-        int mins = appConfig.getInstance().getTime();
+        mins = appConfig.getInstance().getTime();
 
         time_p1 = (TextView) findViewById(R.id.time_p1);
         time_p2 = (TextView) findViewById(R.id.time_p2);
@@ -112,6 +113,21 @@ public class Game extends ActionBarActivity {
             ContentValues cv = new ContentValues();
             cv.put("name", winnername);
             cv.put("score", winnerscore);
+            cv.put("time", mins);
+            long new_id = db.insert("HighScore", null, cv);
+            if (new_id == -1){
+                Log.d("HighScore", "Unable to insert a new record");
+            } else {
+                Log.d("HighScore", "Created a record with id = " + new_id);
+//                int n_rows;
+//                ContentValues ru = new ContentValues();
+//                n_rows = db.update("HighScore",
+//                        ru,
+//                        "_id",
+//                        new String[]{Long.toString(new_id)}
+//                );
+//                Log.d("HighScore","updated " + n_rows + " records");
+            }
 
             //Intent j = new Intent(CountDown.this, Game.class);
 //            j.putExtra("player1", player1);
@@ -128,6 +144,4 @@ public class Game extends ActionBarActivity {
             time_p2.setText("" + millisUntilFinished / 1000);
         }
     }
-
-
 }
