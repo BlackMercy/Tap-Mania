@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<LinearLayout -->
+    <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -28,38 +33,109 @@
 
         <TableRow android:gravity="center_horizontal">
 
+
             <TextView
-                android:layout_width="match_parent"
                 android:gravity="center"
-                android:padding="10dip"
-                android:text="NAME"
+                android:padding="10dp"
+                android:text="15 seconds"
                 android:textColor="#00F"
                 android:textSize="30dp"
-                android:id="@+id/PlayerName" />
-
-
-            <TextView
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="SCORE"
-                android:textColor="#00F"
-                android:textSize="30dp" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="TIME"
-                android:textColor="#00F"
-                android:textSize="30dp" />
+                android:id="@+id/t15s" />
 
         </TableRow>
 
     </TableLayout>
 
+    <TwoLineListItem
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TwoLineListItem>
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="313dp"
+        android:layout_height="190dp"
         android:id="@+id/listView2"
+        android:layout_gravity="center_horizontal" />
+
+    <TableRow
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="30 second"
+            android:textColor="#00F"
+            android:textSize="30dp"
+            android:id="@+id/t30s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </TableRow>
+
+    <TableRow
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ListView
+            android:gravity="center"
+            android:layout_height="190dp"
+            android:id="@+id/listView3"
+            android:layout_gravity="center_horizontal" />
+
+    </TableRow>
+
+    <TableRow
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+
+        <TextView
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="45 seconds"
+            android:textColor="#00F"
+            android:textSize="30dp"
+            android:id="@+id/t45s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <TableRow
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ListView
+            android:gravity="center"
+            android:layout_height="190dp"
+            android:id="@+id/listView4" />
+
+    </TableRow>
+
+    <TableRow
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right">
+
+        <TextView
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="60 seconds"
+            android:textColor="#00F"
+            android:textSize="30dp"
+            android:id="@+id/t60s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:id="@+id/listView5"
         android:layout_gravity="center_horizontal" />
 
     <Button
@@ -68,7 +144,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Reset"
-        android:onClick="buttonClicked" />
-
-
+        android:onClick="buttonClicked"/>
 </LinearLayout>
+</ScrollView>
+<!--</LinearLayout>-->
