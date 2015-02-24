@@ -14,7 +14,8 @@
                 android:text="---BEST PLAYERS---"
                 android:textColor="#F00"
                 android:textSize="40dp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"
+                android:id="@+id/bestplayers" />
         </TableRow>
     </TableLayout>
 
@@ -33,7 +34,8 @@
                 android:padding="10dip"
                 android:text="NAME"
                 android:textColor="#00F"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:id="@+id/PlayerName" />
 
 
             <TextView
@@ -43,61 +45,30 @@
                 android:textColor="#00F"
                 android:textSize="30dp" />
 
-        </TableRow>
-
-        <TableRow android:gravity="center_horizontal">
-
             <TextView
                 android:gravity="center"
-                android:padding="10dip"
-                android:text="Peter"
-                android:textSize="20dp" />
+                android:padding="10dp"
+                android:text="TIME"
+                android:textColor="#00F"
+                android:textSize="30dp" />
 
-            <TextView
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="96"
-                android:textSize="20dp" />
-        </TableRow>
-
-        <TableRow android:gravity="center_horizontal">
-
-            <TextView
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="Oliver"
-                android:textSize="20dp" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="88"
-                android:textSize="20dp" />
-        </TableRow>
-
-        <TableRow android:gravity="center_horizontal">
-
-            <TextView
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="Julian"
-                android:textSize="20dp" />
-
-            <TextView
-                android:gravity="center"
-                android:padding="10dip"
-                android:text="80"
-                android:textSize="20dp" />
         </TableRow>
 
     </TableLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="313dp"
+        android:id="@+id/listView2"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:id="@+id/buttonReset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Reset" />
+        android:text="Reset"
+        android:onClick="buttonClicked" />
 
 
 </LinearLayout>
