@@ -17,7 +17,7 @@ public class HStoDB extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE HighScore (" +
+       String sql = "CREATE TABLE HighScore (" +
                 "_id integer primary key autoincrement, " +
                 "name text not null," +
                 "score int not null," +
