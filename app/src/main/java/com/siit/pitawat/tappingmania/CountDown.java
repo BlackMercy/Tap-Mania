@@ -14,15 +14,12 @@ public class CountDown extends ActionBarActivity {
 
     ApplicationConfig appConfig;
     TextView num;
-    //String player1, player2;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.countdown);
         num = (TextView) findViewById(R.id.countdown);
         Intent i = this.getIntent();
-//        player1 = i.getStringExtra("player1");
-//        player2 = i.getStringExtra("player2");
         int n = Integer.parseInt(num.getText().toString());
         Log.d("n", n + "");
         Log.d("TimeCountdown", String.valueOf(appConfig.getInstance().getTime()));
@@ -37,7 +34,6 @@ public class CountDown extends ActionBarActivity {
     }
 
 
-
     public class timer extends CountDownTimer {
 
         public timer(long millisInFuture, long countDownInterval) {
@@ -48,8 +44,6 @@ public class CountDown extends ActionBarActivity {
         public void onFinish() {
             num.setText("START!");
             Intent j = new Intent(CountDown.this, Game.class);
-//            j.putExtra("player1", player1);
-//            j.putExtra("player2", player2);
             startActivityForResult(j, 88);
             // advance to Game class
         }

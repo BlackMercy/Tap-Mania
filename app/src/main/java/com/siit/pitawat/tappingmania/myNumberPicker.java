@@ -7,6 +7,12 @@ import android.widget.NumberPicker;
 /**
  * Created by Pitawat on 14/2/2015.
  */
+
+
+/*
+ * This class is not used
+ */
+
 public class myNumberPicker extends NumberPicker {
     public myNumberPicker(Context context) {
         super(context);

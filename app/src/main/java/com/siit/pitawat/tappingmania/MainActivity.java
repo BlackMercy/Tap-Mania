@@ -16,7 +16,7 @@ public class MainActivity extends ActionBarActivity {
     ApplicationConfig appConfig;
     NumberPicker time;
     String[] timeLim;
-    int j,k;
+    int j, k;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,16 +26,12 @@ public class MainActivity extends ActionBarActivity {
         time = (NumberPicker) findViewById(R.id.numberPicker);
         k = 0;
         timeLim = new String[4];
-        for (j=0;j<timeLim.length;j++){
-            timeLim[j] = Integer.toString(k+15);
+        for (j = 0; j < timeLim.length; j++) {
+            timeLim[j] = Integer.toString(k + 15);
             k = Integer.parseInt(timeLim[j]);
         }
-//        timeLim[0] = "15";
-//        timeLim[1] = "30";
-//        timeLim[2] = "45";
-//        timeLim[3] = "60";
 
-        time.setMaxValue(timeLim.length-1);
+        time.setMaxValue(timeLim.length - 1);
         time.setMinValue(0);
         time.setDisplayedValues(timeLim);
     }
@@ -52,12 +48,8 @@ public class MainActivity extends ActionBarActivity {
         appConfig.getInstance().setPlayer2Name(player2.getText().toString());
         appConfig.getInstance().setTime(Integer.parseInt(timeLim[time.getValue()]));
 
-        Log.d("Test",time.getValue()+"");
-        //int time1 = time.getValue();
-//        i.putExtra("player1", player1.getText().toString());
-//
-//
-//        i.putExtra("player2", player2.getText().toString());
+        Log.d("Test", time.getValue() + "");
+
         startActivity(i);
     }
 
@@ -81,7 +73,6 @@ public class MainActivity extends ActionBarActivity {
             // Add class here
             Intent hs = new Intent(this, HighScore.class);
             startActivity(hs);
-            //return true;
         }
 
         return super.onOptionsItemSelected(item);

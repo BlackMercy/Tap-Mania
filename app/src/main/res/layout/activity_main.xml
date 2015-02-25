@@ -32,10 +32,12 @@
             <TableRow>
 
                 <TextView
-                    android:paddingTop="78dp"
-                    android:text="Set time limit"
+                    android:paddingTop="67dp"
+                    android:gravity="center_horizontal"
+                    android:text="Set time limit\n(seconds)"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:id="@+id/settimelimit" />
             </TableRow>
 
             <NumberPicker
@@ -115,7 +117,7 @@
 
         android:gravity="center"
         android:paddingBottom="30dp"
-        android:text="Compete with your friend and see who can tap more rapidly in 1 minute!"
+        android:text="Compete with your friend and see who can tap more rapidly!"
         android:textIsSelectable="false"
         android:textSize="20dp" />
 

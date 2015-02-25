@@ -1,11 +1,14 @@
 package com.siit.pitawat.tappingmania;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -43,20 +46,9 @@ public class Game extends ActionBarActivity {
 
         timer counter = new timer(mins * 1000, 1000);
         counter.start();
-
-
     }
 
     public void tap(View v) {
-//        TextView scoreP1 = (TextView) findViewById(R.id.scoreP1);
-//        int sP1 = Integer.parseInt(scoreP1.toString());
-//
-//        int id = v.getId();
-//        switch (id) {
-//            case R.id.buttonP1:
-//                sP1++;
-//                scoreP1.setText(sP1);
-//        }
         TextView scoreP1 = (TextView) findViewById(R.id.scoreP1);
         TextView scoreP2 = (TextView) findViewById(R.id.scoreP2);
         sP1 = Integer.parseInt(scoreP1.getText().toString());
@@ -107,34 +99,23 @@ public class Game extends ActionBarActivity {
             } else {
                 result_p1.setText("DRAW!!");
                 result_p2.setText("DRAW!!");
-            }
 
-            SQLiteDatabase db = HSDB.getWritableDatabase();
-            ContentValues cv = new ContentValues();
-            cv.put("name", winnername);
-            cv.put("score", winnerscore);
-            cv.put("time", mins);
-            long new_id = db.insert("HighScore", null, cv);
-            if (new_id == -1){
-                Log.d("HighScore", "Unable to insert a new record");
+            }
+            if (winnername != "" && winnerscore != 65534) {
+                SQLiteDatabase db = HSDB.getWritableDatabase();
+                ContentValues cv = new ContentValues();
+                cv.put("name", winnername);
+                cv.put("score", winnerscore);
+                cv.put("time", mins);
+                long new_id = db.insert("HighScore", null, cv);
+                if (new_id == -1) {
+                    Log.d("HighScore", "Unable to insert a new record");
+                } else {
+                    Log.d("HighScore", "Created a record with id = " + new_id);
+                }
             } else {
-                Log.d("HighScore", "Created a record with id = " + new_id);
-//                int n_rows;
-//                ContentValues ru = new ContentValues();
-//                n_rows = db.update("HighScore",
-//                        ru,
-//                        "_id",
-//                        new String[]{Long.toString(new_id)}
-//                );
-//                Log.d("HighScore","updated " + n_rows + " records");
-            }
 
-            //Intent j = new Intent(CountDown.this, Game.class);
-//            j.putExtra("player1", player1);
-//            j.putExtra("player2", player2);
-            //startActivityForResult(j, 88);
-            // advance to Game class
-//            this.cancel();
+            }
         }
 
         @Override
@@ -143,5 +124,30 @@ public class Game extends ActionBarActivity {
             time_p1.setText("" + millisUntilFinished / 1000);
             time_p2.setText("" + millisUntilFinished / 1000);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+
+        if (id == R.id.high_score) {
+            // Add class here
+            Intent hs = new Intent(this, HighScore.class);
+            startActivity(hs);
+            //return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

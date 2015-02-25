@@ -64,7 +64,7 @@
         <TextView
             android:gravity="center"
             android:padding="10dp"
-            android:text="30 second"
+            android:text="30 seconds"
             android:textColor="#00F"
             android:textSize="30dp"
             android:id="@+id/t30s"
