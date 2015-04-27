@@ -144,7 +144,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Reset"
-        android:onClick="buttonClicked"/>
+        android:onClick="buttonClicked"
+        android:visibility="gone" />
 </LinearLayout>
 </ScrollView>
 <!--</LinearLayout>-->

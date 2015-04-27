@@ -1,8 +1,7 @@
 package com.siit.pitawat.tappingmania;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Pitawat on 14/2/2015.
@@ -23,6 +30,9 @@ public class Game extends ActionBarActivity {
     int sP2;
     int mins;
     HStoDB HSDB;
+
+    JSONParser jp = new JSONParser();
+    List<NameValuePair> parameters = new ArrayList<NameValuePair>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +78,23 @@ public class Game extends ActionBarActivity {
         }
     }
 
-//    class PostScore extends AsyncTask<String, Void, Boolean> {
-//
-//    }
+
+    class PostScore extends AsyncTask<String, Void, Boolean> {
+
+        @Override
+        protected Boolean doInBackground(String... params) {
+            JSONObject jo = jp.makeHttpRequest("http://ict.siit.tu.ac.th/~u5522791169/ITS333/realpost.php","POST",parameters);
+            try {
+                String tmp = jo.getString("response");
+                Log.d("wefwefwef",tmp);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        }
+    }
+
 
     public class timer extends CountDownTimer {
 
@@ -108,18 +132,22 @@ public class Game extends ActionBarActivity {
             if (winnername != "" && winnerscore != 65534) {
 
                 // insert AsyncTask code here
+                parameters.add(new BasicNameValuePair("uname",winnername));
+                parameters.add(new BasicNameValuePair("score",Integer.toString(winnerscore)));
+                parameters.add(new BasicNameValuePair("scoretype",Integer.toString(mins)));
+                new PostScore().execute();
 
-                SQLiteDatabase db = HSDB.getWritableDatabase();
-                ContentValues cv = new ContentValues();
-                cv.put("name", winnername);
-                cv.put("score", winnerscore);
-                cv.put("time", mins);
-                long new_id = db.insert("HighScore", null, cv);
-                if (new_id == -1) {
-                    Log.d("HighScore", "Unable to insert a new record");
-                } else {
-                    Log.d("HighScore", "Created a record with id = " + new_id);
-                }
+//                SQLiteDatabase db = HSDB.getWritableDatabase();
+//                ContentValues cv = new ContentValues();
+//                cv.put("name", winnername);
+//                cv.put("score", winnerscore);
+//                cv.put("time", mins);
+//                long new_id = db.insert("HighScore", null, cv);
+//                if (new_id == -1) {
+//                    Log.d("HighScore", "Unable to insert a new record");
+//                } else {
+//                    Log.d("HighScore", "Created a record with id = " + new_id);
+//                }
             } else {
 
             }
