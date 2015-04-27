@@ -68,6 +68,10 @@ public class Game extends ActionBarActivity {
         }
     }
 
+//    class PostScore extends AsyncTask<String, Void, Boolean> {
+//
+//    }
+
     public class timer extends CountDownTimer {
 
         public timer(long millisInFuture, long countDownInterval) {
@@ -102,6 +106,9 @@ public class Game extends ActionBarActivity {
 
             }
             if (winnername != "" && winnerscore != 65534) {
+
+                // insert AsyncTask code here
+
                 SQLiteDatabase db = HSDB.getWritableDatabase();
                 ContentValues cv = new ContentValues();
                 cv.put("name", winnername);

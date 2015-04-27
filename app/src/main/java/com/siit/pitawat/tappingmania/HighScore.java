@@ -1,25 +1,89 @@
 package com.siit.pitawat.tappingmania;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Jatupat on 23-Feb-15.
  */
+
 public class HighScore extends ActionBarActivity {
     HStoDB helper;
     SimpleCursorAdapter adapter, adapter2, adapter3, adapter4;
     ActionMode actionMode;
+    ArrayList<Map<String, String>> data;
+
+    class LoadScore extends AsyncTask<String, Void, Boolean>{
+
+        @Override
+        protected Boolean doInBackground(String... params) {
+            BufferedReader reader;
+            StringBuilder buffer = new StringBuilder();
+            String line;
+
+            try {
+                Log.e("LoadScore", "");
+                URL u = new URL("http://ict.siit.tu.ac.th/~u5522791169/ITS333/testfetch.php");
+                HttpURLConnection h = (HttpURLConnection) u.openConnection();
+                h.setRequestMethod("GET");
+                h.setDoInput(true);
+                h.connect();
+
+                int response = h.getResponseCode();
+                if (response == 200) {
+                    reader = new BufferedReader(new InputStreamReader(h.getInputStream()));
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line);
+                    }
+
+                    Log.e("LoadScore", buffer.toString());
+                    JSONObject json = new JSONObject(buffer.toString());
+                    //JSONObject timestamp_json = json.getJSONObject("timestamp");
+                    //timestamp = timestamp_json.getInt("")
+                    //timestamp = json.getInt("timestamp");
+                    //Log.d("xxx", timestamp + "----lll");
+                    for (int i = 0; i < json.getJSONArray("msg").length(); i++) {
+                        String user = json.getJSONArray("msg").getJSONObject(i).getString("uname");
+                        String score = json.getJSONArray("msg").getJSONObject(i).getString("score");
+
+                        Map<String, String> item = new HashMap<String, String>();
+                        item.put("user", user);
+                        item.put("score", score);
+                        data.add(0, item);
+                    }
+                    return true;
+                }
+            } catch (MalformedURLException e) {
+                Log.e("LoadMessageTask", "Invalid URL");
+            } catch (IOException e) {
+                Log.e("LoadMessageTask", "I/O Exception");
+            } catch (JSONException e) {
+                Log.e("LoadMessageTask", "Invalid JSON");
+            }
+            return false;
+        }
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +129,8 @@ public class HighScore extends ActionBarActivity {
         lv4.setAdapter(adapter3);
         ListView lv5 = (ListView) findViewById(R.id.listView5);
         lv5.setAdapter(adapter4);
-
+        LoadScore task = new LoadScore();
+        task.execute();
     }
 
     protected void onResume(){
