@@ -4,13 +4,23 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.ActionMode;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -18,24 +28,116 @@ import java.util.Map;
  */
 
 public class HighScore extends ActionBarActivity {
-    //HStoDB helper;
     SimpleAdapter adapter2, adapter3, adapter4,adapter5;
     ActionMode actionMode;
     ArrayList<Map<String, String>> data2,data3,data4,data5;
 
     JSONParser jp = new JSONParser();
+
+
     //List<NameValuePair> parameters = new ArrayList<NameValuePair>();
 
-    class LoadScore extends AsyncTask<String, Void, Boolean>{
-
+    class LoadScore extends AsyncTask<String, Void, Boolean> {
         @Override
         protected Boolean doInBackground(String... params) {
-            JSONObject jo = jp.getJSONFromUrl("http://ict.siit.tu.ac.th/~u5522791169/ITS333/testfetch.php");
-            return true;
+            BufferedReader reader;
+            StringBuilder buffer = new StringBuilder();
+            String line;
+
+            try {
+
+                URL u = new URL("http://ict.siit.tu.ac.th/~u5522791169/ITS333/testfetch.php");
+                HttpURLConnection h = (HttpURLConnection) u.openConnection();
+                h.setRequestMethod("GET");
+                h.setDoInput(true);
+                h.connect();
+
+                int response = h.getResponseCode();
+                if (response == 200) {
+                    reader = new BufferedReader(new InputStreamReader(h.getInputStream()));
+                    while ((line = reader.readLine()) != null) {
+                        buffer.append(line);
+                    }
+
+                    Log.e("LoadMessageTask", buffer.toString());
+
+                    JSONObject jo = new JSONObject(buffer.toString());
+                    JSONArray msg = jo.getJSONArray("msg");
+                    for (int i = 0; i < msg.length(); i++) {
+
+                        String username = msg.getJSONObject(i).getString("uname");
+                        String score = msg.getJSONObject(i).getString("score");
+                        String scoretype = msg.getJSONObject(i).getString("time");
+                        String score_combine = "Score: " + score + "  ScoreType: " + scoretype;
+                        Map<String, String> item = new HashMap<String, String>();
+                        item.put("uname", username);
+                        item.put("score", score_combine);
+
+                        switch (Integer.parseInt(scoretype)){
+                            case 15:
+                                data2.add(0, item);
+                                break;
+                            case 30:
+                                data3.add(0, item);
+                                break;
+                            case 45:
+                                data4.add(0,item);
+                                break;
+                            case 60:
+                                data5.add(0,item);
+                                break;
+                        }
+                    }
+                    return true;
+                }
+            } catch (MalformedURLException e) {
+                Log.e("LoadMessageTask", "Invalid URL");
+            } catch (IOException e) {
+                Log.e("LoadMessageTask", "I/O Exception");
+            } catch (JSONException e) {
+                Log.e("LoadMessageTask", "Invalid JSON");
+            }
+            return false;
         }
+        /*
+        @Override
+        protected Boolean doInBackground(String... params) {
+            BufferedReader reader;
+            StringBuilder buffer = new StringBuilder();
+            String line;
+
+            try {
+                JSONObject jo = jp.getJSONFromUrl("http://ict.siit.tu.ac.th/~u5522791169/ITS333/testfetch.php");
+                JSONArray msg = jo.getJSONArray("msg");
+                for (int i = 0; i < msg.length(); i++) {
+
+                    String username = msg.getJSONObject(i).getString("uname");
+                    String score = msg.getJSONObject(i).getString("score");
+                    String scoretype = msg.getJSONObject(i).getString("time");
+                    String score_combine = "Score: " + score + "  ScoreType: " + scoretype;
+                    Map<String, String> item = new HashMap<String, String>();
+                    item.put("uname", username);
+                    item.put("score", score_combine);
+
+                    if(scoretype=="15"){
+                        data2.add(0,item);
+                    } else if(scoretype=="30"){
+                        data3.add(0,item);
+                    } else if(scoretype=="45"){
+                        data4.add(0,item);
+                    } else {
+                        data5.add(0,item);
+                    }
+                }
+                return true;
+            } catch (JSONException e) {
+                Log.e("LoadMessageTask", "Invalid JSON");
+            }
+            return false;
+        }
+        */
+
     }
-
-
 
 //    class LoadScore_cancel extends AsyncTask<String, Void, Boolean>{
 //
@@ -128,6 +230,8 @@ public class HighScore extends ActionBarActivity {
         task.execute();
         Intent i = this.getIntent();
         //user = i.getStringExtra("user");
+
+
 
 //        helper = new HStoDB(this.getApplicationContext());
 //        SQLiteDatabase db = helper.getReadableDatabase();
